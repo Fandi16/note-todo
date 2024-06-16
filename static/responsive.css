@@ -1,0 +1,32 @@
+/* Responsive design */
+@media (min-width: 600px) {
+    .card {
+        flex: 1 1 calc(50% - 20px);
+    }
+    .column {
+        flex: 1 1 calc(50% - 20px);
+        max-width: calc(50% - 20px);
+    }
+}
+
+@media (min-width: 900px) {
+    .card {
+        flex: 1 1 calc(33.33% - 20px);
+    }
+    .column {
+        flex: 1 1 calc(33.33% - 20px);
+        max-width: calc(33.33% - 20px);
+    }
+    
+}
+
+@media (min-width: 1200px) {
+    .card {
+        flex: 1 1 calc(25% - 20px);
+    }
+    .column {
+        flex: 1 1 calc(25% - 20px);
+        max-width: calc(25% - 20px);
+    }
+
+}

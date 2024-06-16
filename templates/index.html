@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Note and Todo App</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='responsive.css') }}">
+        <script defer src="{{ url_for('static', filename='js/ocr.js') }}"></script>
+        <script defer src="{{ url_for('static', filename='js/notes.js') }}"></script>
+        <script defer src="{{ url_for('static', filename='js/todos.js') }}"></script>
+        <!-- Link to Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    </head>
+
+    <body>
+        <header>
+            <h1><a href="{{ url_for('home') }}">Note & Do</a></h1>
+            <a href="{{ url_for('profile') }}" class="profile-logo">
+                <img src="static/img/1.jpeg" alt="Profile Logo" class="profile-img">
+            </a>
+        </header>
+        <main>
+            <button class="switch-button">Switch to Todos</button>
+            <div class="container">
+                <section class="section">
+                    <article class="notes-section">
+                        <h2>Notes</h2>
+                        <form id="noteForm">
+                            <input type="text" id="noteTitle" placeholder="Title" required>
+                            <textarea id="noteContent" placeholder="Content" required></textarea>
+                            <input type="file" id="file-input" accept="image/*">
+                            <h3>Image Preview:</h3>
+                            <img id="image-preview" src="#" alt="Image Preview">
+                            <button type="button" id="uploadOCR">Upload & OCR</button>
+                            <button type="submit">Add Note</button>
+                        </form>
+                        <div id="notesList" class="card-list"></div>
+                    </article>
+                    <article class="todos-section">
+                        <h2>Todos</h2>
+                        <form id="todoForm">
+                            <input type="text" id="todoTask" placeholder="Task" required>
+                            <input type="datetime-local" id="todoDueDate">
+                            <button type="submit">Add Todo</button>
+                        </form>
+                        <div id="todosList" class="card-list"></div>
+                    </article>
+                </section>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; 2024 Note and Todo App</p>
+        </footer>
+        <!-- Modal for delete confirmation -->
+        <div id="deleteModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <i class="fa-solid fa-trash-can-arrow-up fa-flip-horizontal fa-xl"></i>
+                <p>Are you sure you want to delete this item?</p>
+                <button id="confirmDelete">Yes</button>
+                <button id="cancelDelete">No</button>
+            </div>
+        </div>
+        <!-- Modal for edit form -->
+        <div id="editModalNote" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <form id="editForm">
+                    <input type="hidden" id="editId">
+                    <input type="text" id="editNoteTitle" placeholder="Note Title" required>
+                    <textarea id="editNoteContent" placeholder="Note Content" required></textarea>
+                    <button type="submit">Save Changes</button>
+                </form>
+            </div>
+        </div>
+        <div id="editModalTodo" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <form id="editTodoForm">
+                    <input type="hidden" id="editTodoId">
+                    <input type="text" id="editTodoTask" placeholder="Todo Task" required>
+                    <input type="datetime-local" id="editTodoDueDate" required>
+                    <button type="submit">Save Changes</button>
+                </form>
+            </div>
+        </div>
+        <!-- Elemen Notifikasi -->
+        <div id="notification" class="notification"></div>
+
+        <script>
+            document.addEventListener( 'DOMContentLoaded', function ()
+            {
+                const switchButton = document.querySelector( '.switch-button' );
+                const section = document.querySelector( '.section' );
+
+                switchButton.addEventListener( 'click', function ()
+                {
+                    section.classList.toggle( 'flipped' );
+                    switchButton.textContent = section.classList.contains( 'flipped' ) ? 'Switch to Notes' : 'Switch to Todos';
+
+                    // Menampilkan/hide bagian sesuai dengan kondisi flipped
+                    const notesSection = document.querySelector( '.notes-section' );
+                    const todosSection = document.querySelector( '.todos-section' );
+
+                    if ( section.classList.contains( 'flipped' ) )
+                    {
+                        notesSection.style.display = 'none';
+                        todosSection.style.display = 'block';
+                    } else
+                    {
+                        notesSection.style.display = 'block';
+                        todosSection.style.display = 'none';
+                    }
+                } );
+            } );
+        </script>
+    </body>
+
+</html>

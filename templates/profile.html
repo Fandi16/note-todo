@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Note and Todo App</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='responsive.css') }}">
+        <!-- Link to Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    </head>
+
+    <body>
+        <header>
+            <h1><a href="{{ url_for('home') }}">Note & Do</a></h1>
+            <a href="profile.html" class="profile-logo">
+                <img src="static/img/1.jpeg" alt="Profile Logo" class="profile-img">
+            </a>
+        </header>
+        <main>
+            <div class="about-us">
+                <section>
+                    <div class="row">
+                        <div class="column">
+                            <div class="card2">
+                                <div class="img-container">
+                                    <img src="static/img/1.jpeg">
+                                </div>
+                                <h3>Khoir Afandi</h3>
+                                <p>Web Developer</p>
+                                <p>"Hi, I am a student of PGRI Semarang University majoring in Informatics since 2020. I
+                                    am actively involved in committee
+                                    organizations. I am highly interested in exploring new things in the field of
+                                    technology, particularly in Web
+                                    Development and Design. I possess a sense of responsibility and enjoy challenges."
+                                </p>
+                                <div class="icons">
+                                    <a href="https://instagram.com/fandi.16_?igshid=ZDc4ODBmNjlmNQ=="
+                                        style="color: #e6683c;"><i class="fa-brands fa-instagram"></i></a>
+                                    <a href="https://www.linkedin.com/in/khoir-afandi-780433204"
+                                        style="color: #012165;"><i class="fa-brands fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; 2024 Note and Todo App</p>
+        </footer>
+    </body>
+
+</html>
