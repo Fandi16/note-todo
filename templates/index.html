@@ -4,7 +4,9 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/svg+xml+png" href="./static/icon/1080.png" />
         <title>Note and Todo App</title>
+        <link rel="manifest" href="/static/app.webmanifest">
         <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='responsive.css') }}">
         <script defer src="{{ url_for('static', filename='js/ocr.js') }}"></script>
@@ -16,7 +18,7 @@
 
     <body>
         <header>
-            <h1><a href="{{ url_for('home') }}">Note & Do</a></h1>
+            <h1><a href="{{ url_for('home') }}">Note & Todo</a></h1>
             <a href="{{ url_for('profile') }}" class="profile-logo">
                 <img src="static/img/1.jpeg" alt="Profile Logo" class="profile-img">
             </a>
